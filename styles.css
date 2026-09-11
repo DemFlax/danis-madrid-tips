@@ -75,16 +75,20 @@ h1 { margin-bottom: 24px; max-width: 760px; font-size: clamp(3.6rem, 8vw, 7rem);
 .thanks .kicker { margin-bottom: 14px; }
 .thanks h2 { margin-bottom: 18px; }
 .thanks > p:not(.kicker) { margin-bottom: 32px; font-size: 1.1rem; }
-.review-button { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 410px; padding: 18px 22px; border-radius: 999px; background: var(--ink); color: white; text-decoration: none; font-weight: 850; box-shadow: var(--shadow); }
+.cta-stack { display: grid; gap: 12px; max-width: 410px; }
+.review-button, .tip-button { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; padding: 18px 22px; border-radius: 999px; color: white; text-decoration: none; font-weight: 850; box-shadow: var(--shadow); }
+.review-button { background: var(--ink); }
 .review-button span { color: var(--yellow); }
+.tip-button { background: var(--red); }
+.tip-button span { color: white; }
 .pdf-link { display: block; width: max-content; margin-top: 24px; font-weight: 750; text-underline-offset: 4px; }
 footer { display: flex; justify-content: space-between; gap: 16px; padding: 30px max(24px, calc((100vw - 1120px) / 2)); background: var(--ink); color: rgba(255,255,255,.67); font-size: .86rem; }
 
 @media (hover: hover) {
-  .jump-nav a, .visit-card, .review-button { transition: transform .2s ease, background .2s ease, color .2s ease; }
+  .jump-nav a, .visit-card, .review-button, .tip-button { transition: transform .2s ease, background .2s ease, color .2s ease; }
   .jump-nav a:hover { background: var(--ink); color: white; transform: translateY(-1px); }
   .visit-card:hover { transform: translateX(6px); }
-  .review-button:hover { transform: translateY(-2px); }
+  .review-button:hover, .tip-button:hover { transform: translateY(-2px); }
 }
 
 @media (max-width: 760px) {
