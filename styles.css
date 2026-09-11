@@ -25,7 +25,7 @@ h1 { margin-bottom: 24px; max-width: 760px; font-size: clamp(3.6rem, 8vw, 7rem);
 .portrait-wrap .sun { position: absolute; width: min(34vw, 380px); aspect-ratio: 1; border-radius: 50%; background: var(--yellow); top: 12px; right: 0; }
 .portrait-wrap img { position: relative; z-index: 1; max-height: 470px; object-fit: contain; filter: drop-shadow(0 24px 30px rgba(89,22,10,.26)); }
 
-.jump-nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: center; gap: 8px; padding: 12px 18px; background: rgba(255,248,234,.91); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+.jump-nav { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 12px 18px; background: rgba(255,248,234,.91); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
 .jump-nav a { min-width: 94px; padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; text-align: center; text-decoration: none; font-weight: 800; background: var(--paper); }
 .jump-nav a:active { transform: translateY(1px); }
 
@@ -44,6 +44,8 @@ h1 { margin-bottom: 24px; max-width: 760px; font-size: clamp(3.6rem, 8vw, 7rem);
 .tag { width: max-content; margin-bottom: 18px; padding: 7px 11px; border-radius: 999px; background: var(--ink); color: white; font-size: .72rem; font-weight: 850; letter-spacing: .13em; }
 
 .recommendation-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.recommendation-grid.three-up { grid-template-columns: repeat(3, 1fr); }
+.recommendation-grid.three-up .recommendation { grid-template-columns: 40px 1fr; padding: 24px; }
 .recommendation { display: grid; grid-template-columns: 46px 1fr; gap: 14px; padding: 28px; border: 1px solid var(--line); border-radius: 24px; background: var(--paper); box-shadow: 0 7px 20px rgba(23,33,58,.045); }
 .recommendation.full-width { grid-column: 1 / -1; }
 .dish-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: rgba(246,189,65,.24); font-size: 1.35rem; }
@@ -93,13 +95,14 @@ footer { display: flex; justify-content: space-between; gap: 16px; padding: 30px
   .portrait-wrap .sun { width: 270px; top: 22px; right: calc(50% - 155px); }
   .portrait-wrap img { max-height: 330px; }
   .jump-nav { justify-content: stretch; }
-  .jump-nav a { flex: 1; min-width: 0; padding: 9px 10px; }
+  .jump-nav a { flex: 1 1 calc(33.333% - 8px); min-width: 0; padding: 9px 8px; }
   .section { padding: 72px 18px; }
   .section-heading { gap: 14px; margin-bottom: 28px; }
   .feature-card, .feature-card.reverse { grid-template-columns: 1fr; min-height: 0; border-radius: 23px; }
   .feature-card img, .feature-card.reverse img { order: 0; min-height: 220px; max-height: 260px; }
   .feature-card > div { padding: 28px 24px 32px; }
   .recommendation-grid { grid-template-columns: 1fr; }
+  .recommendation-grid.three-up { grid-template-columns: 1fr; }
   .recommendation.full-width { grid-column: auto; }
   .recommendation { padding: 22px 18px; grid-template-columns: 40px 1fr; gap: 12px; border-radius: 20px; }
   .dish-icon { width: 40px; height: 40px; }
