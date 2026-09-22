@@ -15,6 +15,20 @@
         <p class="eyebrow">MADRID, THE DANI WAY</p>
         <h1>My personal<br />Madrid tips</h1>
         <p class="intro">The places I genuinely recommend for great food, memorable drinks and a proper taste of the city.</p>
+        <div class="devour-discount" aria-label="Devour Tours guest discount">
+          <div class="discount-copy">
+            <p class="discount-label">10% OFF DEVOUR TOURS</p>
+            <p class="discount-detail">Use my guest code on any Devour tour, anywhere in the world.</p>
+          </div>
+          <button class="copy-code" type="button" data-copy-code="DaniM10" aria-describedby="copy-status">
+            <span class="code-value">DaniM10</span>
+            <span class="copy-action">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 8V5.8C8 4.8 8.8 4 9.8 4h8.4c1 0 1.8.8 1.8 1.8v8.4c0 1-.8 1.8-1.8 1.8H16M5.8 8h8.4c1 0 1.8.8 1.8 1.8v8.4c0 1-.8 1.8-1.8 1.8H5.8c-1 0-1.8-.8-1.8-1.8V9.8C4 8.8 4.8 8 5.8 8Z" /></svg>
+              <span class="copy-text">Copy</span>
+            </span>
+          </button>
+          <p class="copy-status" id="copy-status" aria-live="polite"></p>
+        </div>
       </div>
       <div class="portrait-wrap" aria-hidden="true">
         <span class="sun"></span>
@@ -158,10 +172,43 @@
           <a class="review-button" href="https://www.tripadvisor.com/UserReviewEdit-g187514-d11995329-Madrid_Tapas_Taverns_History_Tour-Madrid.html">Share your experience <span>↗</span></a>
           <a class="tip-button" href="https://pay.sumup.com/b2c/QLS1HCID">Leave Dani a tip <span>♥</span></a>
         </div>
-        <a class="pdf-link" href="danis-madrid-tips.pdf" download>Download the original PDF ↓</a>
+        <a class="pdf-link" href="danis-madrid-guide.pdf" download>Download this guide as PDF ↓</a>
       </section>
     </main>
 
     <footer><span>Dani's Madrid Tips</span><span>Made for curious travellers</span></footer>
+    <script>
+      const copyButton = document.querySelector("[data-copy-code]");
+      const copyStatus = document.querySelector("#copy-status");
+      const copyText = copyButton.querySelector(".copy-text");
+
+      copyButton.addEventListener("click", async () => {
+        const code = copyButton.dataset.copyCode;
+
+        try {
+          await navigator.clipboard.writeText(code);
+        } catch {
+          const input = document.createElement("input");
+          input.value = code;
+          input.setAttribute("readonly", "");
+          input.style.position = "fixed";
+          input.style.opacity = "0";
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand("copy");
+          input.remove();
+        }
+
+        copyButton.classList.add("copied");
+        copyText.textContent = "Copied!";
+        copyStatus.textContent = "Discount code DaniM10 copied to clipboard.";
+
+        window.setTimeout(() => {
+          copyButton.classList.remove("copied");
+          copyText.textContent = "Copy";
+          copyStatus.textContent = "";
+        }, 2400);
+      });
+    </script>
   </body>
 </html>
