@@ -80,6 +80,41 @@ h1 { margin-bottom: 24px; max-width: 760px; font-size: clamp(3.6rem, 8vw, 7rem);
 .visit-number { color: var(--red); font-size: .78rem; font-weight: 900; }
 .arrow { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--red); color: white; font-size: 1.2rem; }
 
+.hero-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: .65em;
+  min-height: 44px;
+  margin-top: 14px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: white;
+  font-weight: 850;
+  text-decoration: none;
+}
+.hero-contact:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+.guide-contact { padding: clamp(56px, 8vw, 85px) 22px; background: var(--paper); text-align: center; }
+.guide-contact h2 { margin-bottom: 14px; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.05; letter-spacing: -.04em; }
+.guide-contact > p { margin: 0 auto 20px; }
+.contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.contact-link, .share-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 18px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 850;
+  text-decoration: none;
+}
+.contact-link { background: var(--ink); color: white; }
+.share-contact { background: var(--paper); color: var(--ink); cursor: pointer; }
+.share-contact[hidden] { display: none; }
+.guide-contact .share-status { min-height: 1.5em; margin: 8px 0 0; color: var(--muted); }
+
 .thanks { padding: 92px 24px; text-align: center; background: var(--yellow); }
 .thanks > * { max-width: 680px; margin-left: auto; margin-right: auto; }
 .thanks h2 { margin-bottom: 18px; }

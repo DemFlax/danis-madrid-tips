@@ -15,6 +15,7 @@
         <p class="eyebrow">MADRID, THE DANI WAY</p>
         <h1>My personal<br />Madrid tips</h1>
         <p class="intro">The places I genuinely recommend for great food, memorable drinks and a proper taste of the city.</p>
+        <a class="hero-contact" href="#request-dani">Request Dani as your guide <span aria-hidden="true">↓</span></a>
         <div class="devour-discount" aria-label="Devour Tours guest discount">
           <div class="discount-copy">
             <p class="discount-label">10% OFF DEVOUR TOURS</p>
@@ -148,6 +149,16 @@
         </div>
       </section>
 
+      <section id="request-dani" class="guide-contact" aria-labelledby="request-heading">
+        <h2 id="request-heading">Friends or family coming to Madrid?</h2>
+        <p>Share my contact so they can ask for me as their food tour guide.</p>
+        <div class="contact-actions">
+          <a class="contact-link" href="https://demflax.github.io/tour-with-dani/">Request Dani as your guide</a>
+          <button class="share-contact" type="button" hidden>Share Dani’s contact</button>
+        </div>
+        <p class="share-status" role="status"></p>
+      </section>
+
       <section id="tip" class="thanks" aria-labelledby="tip-heading">
         <h2 id="tip-heading">Enjoyed the tour?</h2>
         <p>If you'd like to leave a tip, I really appreciate it. Thanks for spending part of your time in Madrid with me!</p>
@@ -188,6 +199,29 @@
           copyText.textContent = "Copy";
           copyStatus.textContent = "";
         }, 2400);
+      });
+
+      const shareContact = document.querySelector(".share-contact");
+      const contactLink = document.querySelector(".contact-link");
+      const shareStatus = document.querySelector(".share-status");
+
+      shareContact.hidden = false;
+      shareContact.addEventListener("click", async () => {
+        shareStatus.textContent = "";
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: "Request Dani as your guide in Madrid", url: contactLink.href });
+            return;
+          } catch (error) {
+            if (error.name === "AbortError") return;
+          }
+        }
+        try {
+          await navigator.clipboard.writeText(contactLink.href);
+          shareStatus.textContent = "Dani’s contact link copied.";
+        } catch {
+          shareStatus.textContent = "Open Dani’s contact page and share its address.";
+        }
       });
     </script>
   </body>
