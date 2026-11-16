@@ -58,6 +58,14 @@ h1 { margin-bottom: 24px; max-width: 760px; font-size: clamp(3.6rem, 8vw, 7rem);
 .recommendation-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 .recommendation { display: grid; grid-template-columns: 46px 1fr; gap: 14px; padding: 28px; border: 1px solid var(--line); border-radius: 24px; background: var(--paper); box-shadow: 0 7px 20px rgba(23,33,58,.045); }
 .recommendation.full-width { grid-column: 1 / -1; }
+.paella-places { display: grid; gap: 16px 24px; }
+.classic-tapas { margin-top: clamp(42px, 6vw, 68px); }
+.classic-tapas h3 { margin-bottom: 20px; font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -.045em; line-height: 1.05; }
+.classic-tapas .recommendation-grid { grid-template-columns: 1fr; }
+
+@media (min-width: 920px) {
+  .paella-places, .classic-tapas .recommendation-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 .dish-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: rgba(246,189,65,.24); font-size: 1.35rem; }
 .category { margin-bottom: 12px; color: var(--red); font-size: .78rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
 .place { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 5px; font-size: 1.25rem; line-height: 1.25; font-weight: 850; text-decoration-color: rgba(233,75,53,.45); text-decoration-thickness: 2px; text-underline-offset: 4px; }
@@ -169,6 +177,7 @@ footer { display: flex; justify-content: space-between; gap: 16px; padding: 30px
   .feature-card img, .feature-card.reverse img { order: 0; min-height: 220px; max-height: 260px; }
   .feature-card > div { padding: 28px 24px 32px; }
   .recommendation-grid { grid-template-columns: 1fr; }
+  .classic-tapas { scroll-margin-top: 76px; }
   .recommendation.full-width { grid-column: auto; }
   .recommendation { padding: 22px 18px; grid-template-columns: 40px 1fr; gap: 12px; border-radius: 20px; }
   .dish-icon { width: 40px; height: 40px; }
